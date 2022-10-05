@@ -29,6 +29,12 @@ Puppet::Type.newtype(:cs_rsc_defaults) do
       also be added to your manifest."
   end
 
+  autorequire(:cs_shadow) do
+    autos = []
+    autos << @parameters[:cib].value if @parameters[:cib]
+    autos
+  end
+
   newproperty(:value) do
     desc "Value of the property.  It is expected that this will be a single
       value but we aren't validating string vs. integer vs. boolean because
