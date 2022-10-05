@@ -43,6 +43,10 @@ Puppet::Type.newtype(:cs_commit) do
     autorequire(:cs_property) do
       resources_with_cib :cs_property
     end
+    
+    autorequire(:cs_rsc_defaults) do
+      resources_with_cib :cs_rsc_defaults
+    end
 
     autorequire(:cs_colocation) do
       resources_with_cib :cs_colocation
@@ -66,6 +70,10 @@ Puppet::Type.newtype(:cs_commit) do
 
     autosubscribe(:cs_property) do
       resources_with_cib :cs_property
+    end
+    
+    autosubscribe(:cs_rsc_defaults) do
+      resources_with_cib :cs_rsc_defaults
     end
 
     autosubscribe(:cs_colocation) do
